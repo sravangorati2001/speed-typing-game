@@ -33,7 +33,10 @@ function init(){
  generateWord(words);
  wordInput.value="";
  wordInput.addEventListener('input',checkWord);
- setInterval(countDown,1000);
+ setTimeout(function repeat() {
+  countDown();
+  setTimeout(repeat, 1000);
+}, 1000);
  setInterval(chackstatus,50);
 }
  function generateWord(words){
