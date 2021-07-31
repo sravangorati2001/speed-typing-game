@@ -10,7 +10,7 @@
       <div id="login" class="bg-secondary">
       <div class="col-md-4 offset-md-4 mt-2"> 
       <div class="collapse" role="alert" id="alert">
-        <strong>Enter your details correctly</strong> 
+        <strong id="error"></strong> 
         <button type="button" class="close" data-dismiss="alert" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -35,58 +35,7 @@
         </div>
       </div>
     </div>
-     <div id="game"  class="h-100 mx-0 my-0" style="display: none;  background-color:darkslategrey ; color:white ;">
-      <div class="container text-center col-xs-2">
-        <nav class="navbar navbar-light bg-primary">
-            <div class="container-fluid">
-              <span class="navbar-brand mb-0 h1 text-center ">Word Typing Game</span>
-            </div>
-        </nav>
-        <button class="btn btn-warning" id="logout" onclick="logoutUser()">logout</button>
-        <br><br>
-       <h3 class="display-2  h-25" id="current-word"><strong>hello</strong></h3><br>
-       <div class="mx-auto" style="width: 500px;">
-        <input type="text" class="form-control form-control-lg my-auto" placeholder="Start typing..." id="input" autofocus> </div>
-     <div class="row mt-5">
-      <div class="col">
-        <h3>Highest Score:
-          <span id="highest">0</span>
-        </h3>
-      </div>
-        <div class="col">
-          <h3>Time Left:
-            <span id="time">0</span>
-          </h3>
-        </div>
-        <div class="col">
-          <h3>Score:
-            <span id="score">0</span>
-          </h3>
-        </div>
-        <br><br>
-      </div>
-      <br> <br>
-      <div class="d-flex justify-content-center">
-      <div class="collapse" role="alert" id="alert">
-      GAME OVER!!
-      </div></div>
-      <br> <br>
-      <button type="button" class="btn btn-outline-success w-25 fs-4 text-white" id="startB">Start</button> 
     
-      <!-- Instructions -->
-      <div class="d-flex justify-content-center">
-      <div class="row mt-5">
-        <div class="col">
-          <div class="card card-body bg-secondary text-white w-100">
-            <h5>Instructions</h5>
-            <p>Click start button and Type as many words as you can until time runs out!</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-    
-     </div>
 
  <!-- The core Firebase JS SDK is always required and must be listed first -->
  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>

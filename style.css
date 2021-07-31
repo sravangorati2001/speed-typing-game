@@ -2,13 +2,7 @@
 
 /* BASIC */
 
-@media only screen and (max-width: 600px) {
- #game{
-   width: 550px;
-   background-color:darkslategrey;
- }
- 
-}
+
 body{
   margin: 0;
   padding: 0;
@@ -30,7 +24,6 @@ body{
 }
 #game{
   
-  height: 100vh;
   
   font-family: var(--bs-font-sans-serif);
   font-size: 1rem;

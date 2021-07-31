@@ -1,0 +1,67 @@
+<html>
+  <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+<body style="background-color:darkslategrey ; color: aliceblue;" onload="gameFunc()"> 
+    <div class="container text-center col-xs-2">
+      <nav class="navbar navbar-light bg-primary">
+          <div class="container-fluid">
+            <span class="navbar-brand mb-0 h1 text-center ">Word Typing Game</span>
+          </div>
+      </nav>
+      <button class="btn btn-warning" id="logout" onclick="logoutUser()">logout</button>
+      <br><br>
+     <h3 class="display-2  h-25" id="current-word"><strong>hello</strong></h3><br>
+     <div class="mx-auto" style="width: 500px;">
+      <input type="text" class="form-control form-control-lg my-auto" placeholder="Start typing..." id="input" autofocus> </div>
+   <div class="row mt-5">
+    <div class="col">
+      <h3>Highest Score:
+        <span id="highest">0</span>
+      </h3>
+    </div>
+      <div class="col">
+        <h3>Time Left:
+          <span id="time">60</span>
+        </h3>
+      </div>
+      <div class="col">
+        <h3>Score:
+          <span id="score">0</span>
+        </h3>
+      </div>
+      <br><br>
+    </div>
+    <br> <br>
+    <div class="d-flex justify-content-center">
+    <div class="collapse" role="alert" id="alert">
+    GAME OVER!!
+    </div></div>
+    <br> <br>
+    <button type="button" class="btn btn-outline-success w-25 fs-4 text-white" id="startB">Start</button> 
+  
+    <!-- Instructions -->
+    <div class="d-flex justify-content-center">
+    <div class="row mt-5">
+      <div class="col">
+        <div class="card card-body bg-secondary text-white w-100">
+          <h5>Instructions</h5>
+          <p>Click start button and Type as many words as you can until time runs out!</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-firestore.js"></script>
+<!-- TODO: Add SDKs for Firebase products that you want to use 
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-analytics.js"></script>
+<script src="firebase.js"></script>
+ <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+ <script src="script.js"></script>
+ 
+ 
+</body>
+</html>

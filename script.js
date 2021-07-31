@@ -16,10 +16,9 @@ const highestScore=document.getElementById('highest');
 var signupButton=document.getElementById("Signin");
 var loginDiv=document.getElementById("loginDiv");
 var alertt=document.getElementById("alert");
-var db;
-var uid ;
+var db= firebase.firestore();;
 
-db = firebase.firestore();
+
 
 const words=['hat','the','great' ,'Maratha', 'queen', 'Lokmata' ,'cow','crazy','express',
 'crack','creative','examine',
@@ -34,12 +33,32 @@ const words=['hat','the','great' ,'Maratha', 'queen', 'Lokmata' ,'cow','crazy','
 'revolver','echo','siblings','honest','impossible','index',
 'enemy','energy','enforcement','engage','engine','engineer','cream',
 'investigate','horrendous','symptom','across','act','cabinet',
-'cable','cake','calculate','call','camera','craft','hospital',
+'cable','cake','calculate','call','camera','craft','hospital','should','show','shown','side','simple','since','sing','sit','six','size','sleep',
+'slow','small','snow','some','something','song','soon','sound','south','space','special','spell',
+'spring','stand','star','start','stay','step','stood','stop','story','street','strong','study','such','summer','sun',
+'system','page','pair','part','pass','passed','people','perhaps','person','picture','place','plan','plane','plant','play','point','power',
+'probably','problem','product','provide','pull','put','call','came','car','care','carefully','carry','centre',
+'certain','change','check','child','children','city','class','clear','close','cold','colour',
+'come','common','community','complete','contain','could','country','course','create','cried','cross','cry','cut','chocolate',
+'machine','made','make','man','many','map','mark',
+'may','mean','measure','men','might','mile','million','mind','minute','miss','money','month','moon','more',
 'action','active','laughter','magic','master','space','definition'];
 
+function gameFunc(){
+  document.getElementById('highest').innerText=0;
+  
+  db.collection("score")
+  .doc(localStorage.getItem("uid"))
+  .get()
+  .then((docRef) => { document.getElementById('highest').innerText=docRef.data().firebaseScore })
+  .catch(function(error){
+    window.alert("hi");
+    db.collection("score").doc(uid).set({
+      firebaseScore:0
+      });
+  });
+          document.getElementById("startB").addEventListener('click',init);
 
-
-timeDisplay.innerHTML=time;
 function init(){
   
  time=60;
@@ -81,7 +100,7 @@ key= setInterval(countDown,1000);
      scoreDisplay.innerHTML=score; 
      if(score>highestScore.innerText){
        highestScore.innerText=score;
-       db.collection("score").doc(uid).update("firebaseScore",score);
+       db.collection("score").doc(localStorage.getItem("uid")).update("firebaseScore",score);
      }
  }
  
@@ -94,9 +113,7 @@ key= setInterval(countDown,1000);
          return false;
      }
  }
-
-
-
+}
  
 function changeSigninDiv(){
   document.getElementById("email").value="";
@@ -114,33 +131,18 @@ function changeSignupDiv(){
 }
 
 function myFunc(){
-    var email=document.getElementById("email").value;
+   var  email=document.getElementById("email").value;
      var password=document.getElementById("password").value;
-   //  window.alert(email+" "+password);
-  
     if(signupButton.value==="SIGN UP"){
-   // console.log("jdfjf");
      firebase.auth().createUserWithEmailAndPassword(email, password).then(
        function(){
-       // window.location.href = "game.html";
-       document.getElementById("login").style.display="none";
-         document.getElementById("game").style.display="block";
-        var user = firebase.auth().currentUser;
-  if(user){
-  uid=user.email;
-  //window.alert(uid);
-  }
-  
-  db.collection("score").doc(uid).set({
-    firebaseScore:0
-    });
-    document.getElementById("startB").addEventListener('click',init);
-       }
-     ).catch(function(error) {
+         localStorage.setItem("uid",email);
+        window.location.href = "game.html";
+       }).catch(function(error) {
         // Handle Errors here.
         var errorCode = error.code;
         var errorMessage = error.message;
-      // window.alert(errorMessage);
+        document.getElementById("error").innerText=errorMessage;
        alertt.className="alert alert-warning alert-dismissible fade show";
       });
     }
@@ -148,52 +150,22 @@ function myFunc(){
      
       firebase.auth().signInWithEmailAndPassword(email, password).then(
         function(){
-         // console.log("djf");
-         document.getElementById("login").style.display="none";
-         document.getElementById("game").style.display="block";
-         document.getElementById('highest').innerText="";
-         var user = firebase.auth().currentUser;
-         if(user){
-          uid=user.email;
-          //window.alert(uid);
-          }
-         db.collection("score")
-         .doc(uid)
-         .get()
-         .then((docRef) => { document.getElementById('highest').innerText=docRef.data().firebaseScore });
-         
-          document.getElementById("startB").addEventListener('click',init);
-          
+        localStorage.setItem("uid",email);
+         window.location.href = "game.html";
         }
       ).catch(function(error) {
         // Handle Errors here.
       //   var errorCode = error.code;
         var errorMessage = error.message;
-      //  // console.log(errorCode);
-       // window.alert(errorMessage);
+        document.getElementById("error").innerText=errorMessage;
       alertt.className="alert alert-warning alert-dismissible fade show";
-      //  console.log(errorMessage);
     });
     }
    
-    firebase.auth().onAuthStateChanged((user) => {
-      if (user) {
-        // User is signed in, see docs for a list of available properties
-        // https://firebase.google.com/docs/reference/js/firebase.User
-      
-        
-     } else {
-        // User is signed out
-        // ...
-      }
-    });
 }
 
   function logoutUser(){
-   
-    document.getElementById("login").style.display="block";
-         document.getElementById("game").style.display="none";
-         document.getElementById("email").value="";
-         document.getElementById("password").value="";
+        
          firebase.auth().signOut();
+         window.location.href = "index.html";
   }
