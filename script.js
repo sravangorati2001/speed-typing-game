@@ -52,7 +52,6 @@ function gameFunc(){
   .get()
   .then((docRef) => { document.getElementById('highest').innerText=docRef.data().firebaseScore })
   .catch(function(error){
-    window.alert("hi");
     db.collection("score").doc(uid).set({
       firebaseScore:0
       });
