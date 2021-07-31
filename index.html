@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
   </head>
-    <body class="bg-secondary">
-      <div id="login">
+    <body style=" background-color:darkslategrey">
+      <div id="login" class="bg-secondary">
       <div class="col-md-4 offset-md-4 mt-2"> 
       <div class="collapse" role="alert" id="alert">
         <strong>Enter your details correctly</strong> 
@@ -32,14 +32,11 @@
             <input type="password" id="password" class="fadeIn third" name="login" placeholder="Enter password">
             <input type="button" class="fadeIn fourth" value="SIGN IN" id="Signin" onclick="myFunc()">
           </form>
-      
-         
-      
         </div>
       </div>
     </div>
-     <div id="game"  style="display: none; background-color:darkslategrey ; color:white ;">
-      <div class="container text-center col-xs-6">
+     <div id="game"  class="h-100 mx-0 my-0" style="display: none;  background-color:darkslategrey ; color:white ;">
+      <div class="container text-center col-xs-2">
         <nav class="navbar navbar-light bg-primary">
             <div class="container-fluid">
               <span class="navbar-brand mb-0 h1 text-center ">Word Typing Game</span>
@@ -49,7 +46,7 @@
         <br><br>
        <h3 class="display-2  h-25" id="current-word"><strong>hello</strong></h3><br>
        <div class="mx-auto" style="width: 500px;">
-        <input type="text" class="form-control form-control-lg mx-3" placeholder="Start typing..." id="input" autofocus> </div>
+        <input type="text" class="form-control form-control-lg my-auto" placeholder="Start typing..." id="input" autofocus> </div>
      <div class="row mt-5">
       <div class="col">
         <h3>Highest Score:
@@ -78,7 +75,7 @@
     
       <!-- Instructions -->
       <div class="d-flex justify-content-center">
-      <div class="row mt-5 ">
+      <div class="row mt-5">
         <div class="col">
           <div class="card card-body bg-secondary text-white w-100">
             <h5>Instructions</h5>
@@ -88,7 +85,9 @@
       </div>
     </div>
     </div>
+    
      </div>
+
  <!-- The core Firebase JS SDK is always required and must be listed first -->
  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-app.js"></script>
  <script src="https://www.gstatic.com/firebasejs/8.8.1/firebase-auth.js"></script>
