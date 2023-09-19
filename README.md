@@ -9,7 +9,7 @@ The Speed Typing Game is a fun and interactive way to enhance your typing speed 
 
 ## How It Works
 
--   **Random Word Challenge**: Random words appear on the screen, and your mission is to type them as quickly and accurately as possible.
+-   **Random Word Challenge**: Random words appear on the screen, and your mission is to type them as quickly and accurately as possible..
     
 -   **Timer Countdown**: Feel the adrenaline rush as you race against the clock. The game keeps you on your toes with a countdown timer, making each round thrilling.
     
